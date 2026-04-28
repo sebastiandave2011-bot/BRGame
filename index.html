@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogotá Roots</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Language Selector -->
+    <div class="lang-selector">
+        <button id="btn-es" class="active">ES</button>
+        <span>|</span>
+        <button id="btn-en">EN</button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <!-- Usando un video placeholder abstracto/oscuro -->
+            <source src="Assets/hero-bogota.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h1 class="game-title">BOGOTÁ ROOTS</h1>
+            <p class="subtitle" data-key="hero-subtitle">Disponible ahora en Itch.io</p>
+            <a href="#game-section" class="btn primary-btn" data-key="hero-btn">Jugar Ahora</a>
+        </div>
+        <div class="scroll-indicator">
+            <span data-key="scroll-down">Descubre más</span>
+            <div class="arrow"></div>
+        </div>
+    </header>
+
+    <!-- Game Container Section -->
+    <section id="game-section" class="game-container-section">
+        <div class="glass-panel fade-in">
+            <h2 data-key="play-title">Juega Bogotá Roots</h2>
+            
+            <div class="game-wrapper" style="position: relative; display: flex; justify-content: center; align-items: center; background: #050505; border: 2px solid #00a76f; border-radius: 8px; overflow: hidden; padding: 10px; box-shadow: 0 0 20px rgba(0, 167, 111, 0.2);">
+                
+                <iframe frameborder="0" src="https://itch.io/embed-upload/17213154?color=235a0a" allowfullscreen="" width="700" height="440">
+                    <a href="https://nahumb.itch.io/brgame">Play BRgame on itch.io</a>
+                </iframe>
+
+            </div>
+            
+            <p style="margin-top: 15px; color: #a0a0a0; font-size: 0.9rem; font-style: italic;">
+                Tip: Utiliza las teclas WASD o flechas para moverte y ESPACIO para saltar.
+            </p>
+        </div>
+    </section>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section fade-in">
+        <div class="text-block">
+            <h2 data-key="about-title">Acerca del Juego</h2>
+            <p data-key="about-text-1">Desarrollado en Unity, Bogotá Roots es un desafiante plataformas 2D que te lleva a través de tres niveles meticulosamente diseñados. Enfréntate a plataformas de hielo resbaladizo, estructuras móviles con inversión de sentido y puentes a punto de colapsar.</p>
+            <p data-key="about-text-2">Al final de cada recorrido, si logras superar los retos, un habitante local te recompensará con un dato histórico fascinante sobre la capital antes de permitirte avanzar.</p>
+        </div>
+    </section>
+
+    <!-- Horizontal Gallery -->
+    <section class="gallery-section fade-in">
+        <h2 class="section-title" data-key="gallery-title">Arte y Escenarios</h2>
+        <div class="horizontal-scroll">
+            <!-- Placeholder images from Unsplash matching the vibe -->
+            <div class="gallery-item"><img src="images/Fondo.webp" alt="Bogota Monserrate" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/plaza.webp" alt="Bogota Streets" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/nivel2 .webp" alt="Pixel Art Nature" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/Nivel3.webp" alt="Dark City" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/Pingui.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/Ganaste!.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/historia.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/monserrate.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/GameOver.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/parque.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/plaza2.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/street.webp" alt="Retro Gaming" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/BRico.webp" alt="Retro Gaming" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- Trailers Section -->
+    <section class="trailers-section fade-in">
+        <h2 class="section-title" data-key="trailers-title">Tráilers y Gameplay</h2>
+        <div class="video-grid">
+            
+            <div class="video-card">
+                <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                        src="https://www.youtube.com/embed/ysqs0pnsKdc" 
+                        title="Bogotá Roots - Tráiler Oficial" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <h3 data-key="trailer-1" style="margin-top: 15px;">Tráiler Oficial</h3>
+            </div>
+
+            <div class="video-card">
+                <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                        src="https://www.youtube.com/embed/PmNbX_v1fMo" 
+                        title="Bogotá Roots - Gameplay" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <h3 data-key="trailer-2" style="margin-top: 15px;">Gameplay Revelación</h3>
+            </div>
+
+        </div>
+        <a href="https://www.youtube.com/@BogotaRoots" class="yt-link" data-key="yt-link">Visitar Canal de YouTube</a>
+    </section>
+
+    <!-- Lore Section -->
+    <section class="lore-section fade-in">
+        <div class="lore-grid">
+            <div class="lore-text">
+                <h2 data-key="lore-title">La Historia</h2>
+                <p data-key="lore-text-1">Acompaña a un solitario viajero en su travesía por el misticismo del Jardín Botánico y las frías alturas de Monserrate. En su camino, acompañado por una inmersiva banda sonora de 8 bits y densa niebla, descubrirá la verdadera esencia de la ciudad.</p>
+                <p data-key="lore-text-2">El objetivo es claro: recolectar las 5 monedas ocultas para forjar el trofeo, encontrar la llave perdida y cruzar las puertas hacia nuevos horizontes. Presta atención a tu entorno; perritos, gatos y aves pixeladas te acompañarán en este descenso hacia las raíces de Bogotá.</p>
+            </div>
+            <div class="lore-image">
+                <img src="images/historia.webp" alt="Lore Visual" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Section -->
+    <section class="gameplay-section fade-in">
+        <h2 class="section-title" data-key="gameplay-title">Cómo Jugar</h2>
+        <div class="controls-container">
+            <div class="control-box">
+                <div class="icon-keys">
+                    <span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span>
+                </div>
+                <h3 data-key="ctrl-move">Movimiento</h3>
+                <p data-key="ctrl-move-desc">Usa las teclas direccionales o WASD para desplazarte por el nivel.</p>
+            </div>
+            <div class="control-box">
+                <div class="icon-keys">
+                    <span class="key long-key">SPACE</span>
+                </div>
+                <h3 data-key="ctrl-jump">Saltar</h3>
+                <p data-key="ctrl-jump-desc">Esquiva obstáculos y supera las plataformas de caída libre.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2 class="footer-title">BOGOTÁ ROOTS</h2>
+        <p data-key="footer-text">Un desarrollo independiente con pasión por la historia y los videojuegos.</p>
+        <div class="footer-links">
+            <a href="https://nahumb.itch.io/brgame" target="_blank">Itch.io</a>
+            <a href="https://www.youtube.com/@BogotaRoots" target="_blank">YouTube</a>
+        </div>
+        <p class="copyright">© 2026 Bogotá Roots. All rights reserved.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
