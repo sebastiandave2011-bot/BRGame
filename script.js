@@ -70,8 +70,10 @@ const translations = {
     }
 };
 
-// Language logic
+// Main Logic Wrapper
 document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. Language Selector Logic ---
     const btnEs = document.getElementById("btn-es");
     const btnEn = document.getElementById("btn-en");
     
@@ -79,17 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentLang = localStorage.getItem("language") || "es";
     setLanguage(currentLang);
 
-    btnEs.addEventListener("click", () => setLanguage("es"));
-    btnEn.addEventListener("click", () => setLanguage("en"));
+    if (btnEs && btnEn) {
+        btnEs.addEventListener("click", () => setLanguage("es"));
+        btnEn.addEventListener("click", () => setLanguage("en"));
+    }
 
     function setLanguage(lang) {
         localStorage.setItem("language", lang);
         
         // Update active button state
-        if (lang === "es") {
+        if (lang === "es" && btnEs && btnEn) {
             btnEs.classList.add("active");
             btnEn.classList.remove("active");
-        } else {
+        } else if (btnEn && btnEs) {
             btnEn.classList.add("active");
             btnEs.classList.remove("active");
         }
@@ -103,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Scroll Fade-in Animation Logic
+    // --- 2. Scroll Fade-in Animation Logic ---
     const fadeElements = document.querySelectorAll('.fade-in');
 
     const observerOptions = {
@@ -124,4 +128,22 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeElements.forEach(elem => {
         observer.observe(elem);
     });
+
+    // --- 3. Showcase Carrusel Animation Logic ---
+    // Pause carrusel animation smoothly when user hovers over the showcase
+    const showcaseContainer = document.querySelector('.showcase-container');
+    
+    if (showcaseContainer) {
+        showcaseContainer.addEventListener('mouseenter', () => {
+            document.querySelectorAll('.showcase-track').forEach(track => {
+                track.style.animationPlayState = 'paused';
+            });
+        });
+        
+        showcaseContainer.addEventListener('mouseleave', () => {
+            document.querySelectorAll('.showcase-track').forEach(track => {
+                track.style.animationPlayState = 'running';
+            });
+        });
+    }
 });
