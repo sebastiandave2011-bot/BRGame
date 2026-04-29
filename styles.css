@@ -6,7 +6,8 @@
     --accent-hover: #00d18b;
     --text-main: #f0f0f0;
     --text-muted: #a0a0a0;
-    --font-head: 'Playfair Display', serif;
+    /* Cambio a fuente Retro Pixel para títulos */
+    --font-head: 'Press Start 2P', cursive;
     --font-body: 'Montserrat', sans-serif;
 }
 
@@ -32,13 +33,13 @@ body {
 
 h1, h2, h3, h4 {
     font-family: var(--font-head);
-    font-weight: 700;
+    line-height: 1.4; /* Ajuste para evitar que la fuente pixel se superponga */
 }
 
 /* Typography & Utilities */
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Reducido para la fuente pixel */
     margin-bottom: 3rem;
     color: var(--text-main);
     text-transform: uppercase;
@@ -128,31 +129,36 @@ h1, h2, h3, h4 {
 
 .hero-content {
     z-index: 1;
+    padding: 0 20px;
 }
 
 .game-title {
-    font-size: clamp(3rem, 8vw, 6rem);
-    letter-spacing: 5px;
-    margin-bottom: 10px;
+    /* Clamp ajustado para fuente pixel (es naturalmente muy ancha) */
+    font-size: clamp(1.5rem, 5vw, 3.5rem); 
+    letter-spacing: 2px;
+    margin-bottom: 15px;
     text-shadow: 0 0 20px rgba(0, 167, 111, 0.5);
+    color: #fff;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--accent);
     margin-bottom: 40px;
+    font-family: var(--font-body);
+    font-weight: 600;
 }
 
 .btn {
     display: inline-block;
     padding: 15px 40px;
-    font-family: var(--font-body);
-    font-weight: 600;
+    font-family: var(--font-head); /* Botón en fuente retro */
+    font-size: 0.8rem;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
     border-radius: 4px;
 }
@@ -178,9 +184,10 @@ h1, h2, h3, h4 {
     align-items: center;
     gap: 10px;
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-family: var(--font-head);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     animation: bounce 2s infinite;
 }
 
@@ -198,7 +205,7 @@ h1, h2, h3, h4 {
     60% { transform: translateY(-7px); }
 }
 
-/* Game Container */
+/* Game Container - Adaptado para Responsive */
 .game-container-section {
     padding: 100px 20px;
     display: flex;
@@ -220,31 +227,31 @@ h1, h2, h3, h4 {
 }
 
 .glass-panel h2 {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Ajustado para pixel font */
     margin-bottom: 30px;
     color: var(--accent);
 }
 
-.iframe-wrapper {
+.game-wrapper {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    border: 2px solid rgba(0, 167, 111, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050505;
+    border: 2px solid #00a76f;
     border-radius: 8px;
     overflow: hidden;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 167, 111, 0.2);
+    width: 100%;
 }
 
-.iframe-placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    pointer-events: none;
-    text-align: center;
-    width: 80%;
+/* El Iframe ahora es dinámico */
+.game-iframe {
+    width: 100%;
+    max-width: 800px; /* Tamaño máximo en desktop */
+    height: auto;
+    aspect-ratio: 16 / 9;
 }
 
 /* About Section */
@@ -261,14 +268,13 @@ h1, h2, h3, h4 {
 }
 
 .text-block h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem; /* Ajustado para pixel font */
     margin-bottom: 30px;
     color: var(--accent);
-    font-style: italic;
 }
 
 .text-block p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 20px;
     color: var(--text-muted);
 }
@@ -285,11 +291,11 @@ h1, h2, h3, h4 {
     padding: 20px 5vw;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 
 .horizontal-scroll::-webkit-scrollbar {
-    display: none; /* Chrome */
+    display: none;
 }
 
 .gallery-item {
@@ -301,6 +307,7 @@ h1, h2, h3, h4 {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .gallery-item img {
@@ -343,21 +350,37 @@ h1, h2, h3, h4 {
     border-color: rgba(0, 167, 111, 0.3);
 }
 
+.iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .video-card h3 {
     margin-top: 15px;
-    font-size: 1.2rem;
-    font-family: var(--font-body);
+    font-size: 1rem; /* Pixel font size */
     color: var(--text-main);
 }
 
 .yt-link {
     color: var(--accent);
     text-decoration: none;
-    font-weight: 600;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 5px;
     transition: color 0.3s ease;
 }
 
@@ -382,7 +405,7 @@ h1, h2, h3, h4 {
 }
 
 .lore-text h2 {
-    font-size: 3rem;
+    font-size: 1.5rem; /* Pixel font size */
     margin-bottom: 30px;
     color: var(--text-main);
 }
@@ -396,7 +419,7 @@ h1, h2, h3, h4 {
 .lore-image img {
     width: 100%;
     border-radius: 8px;
-    box-shadow: -20px 20px 0px rgba(0, 167, 111, 0.2);
+    box-shadow: -15px 15px 0px rgba(0, 167, 111, 0.2);
 }
 
 /* Gameplay Section */
@@ -409,7 +432,7 @@ h1, h2, h3, h4 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -437,7 +460,8 @@ h1, h2, h3, h4 {
     background: #222;
     border: 2px solid #444;
     border-radius: 6px;
-    font-weight: 600;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
     color: var(--text-main);
     box-shadow: 0 4px 0 #111;
 }
@@ -447,7 +471,8 @@ h1, h2, h3, h4 {
 }
 
 .control-box h3 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
     color: var(--accent);
 }
 
@@ -456,7 +481,7 @@ h1, h2, h3, h4 {
     font-size: 0.95rem;
 }
 
-/* Footer */
+/* Footer & Logo */
 footer {
     padding: 60px 20px 30px;
     text-align: center;
@@ -464,11 +489,12 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.footer-title {
-    font-size: 2rem;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-    color: #fff;
+.footer-logo {
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto 20px auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(0, 167, 111, 0.3));
 }
 
 .footer-links {
@@ -480,9 +506,10 @@ footer {
 
 .footer-links a {
     color: var(--text-muted);
+    font-family: var(--font-head);
+    font-size: 0.7rem;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 0.9rem;
     letter-spacing: 1px;
     transition: color 0.3s ease;
 }
@@ -493,13 +520,202 @@ footer {
 
 .copyright {
     margin-top: 40px;
-    font-size: 0.8rem;
+    font-family: var(--font-head);
+    font-size: 0.6rem;
     color: #444;
+    line-height: 1.8;
 }
 
-/* Responsive */
+/* ==================
+   CHARACTER SECTION 
+   ================== */
+.character-section {
+    padding: 100px 5vw;
+    background: var(--bg-color);
+}
+
+.character-card {
+    display: flex;
+    flex-direction: column; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.character-image {
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; 
+    border-bottom: 2px solid var(--accent); 
+    max-height: 450px; 
+    overflow: hidden;  
+}
+.character-image img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    object-position: top; 
+    image-rendering: pixelated; 
+    filter: drop-shadow(0 5px 15px rgba(0, 167, 111, 0.2));
+}
+
+.character-info {
+    padding: 40px;
+    text-align: center; 
+}
+
+.char-name {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.char-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.char-traits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left; 
+}
+
+.char-traits li {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.trait-icon {
+    font-size: 1.5rem;
+    background: rgba(0, 167, 111, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 167, 111, 0.3);
+    flex-shrink: 0; 
+}
+
+.char-traits h4 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.char-traits p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   MEDIA QUERIES - MOBILE FIRST ADAPTATION
+   ========================================= */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 768px) {
-    .game-title { font-size: 2.5rem; }
-    .lore-grid { grid-template-columns: 1fr; }
-    .glass-panel { padding: 20px; }
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .glass-panel {
+        padding: 20px;
+    }
+
+    .lore-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .lore-image img {
+        box-shadow: 0px 15px 0px rgba(0, 167, 111, 0.2);
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-item {
+        min-width: 85vw; 
+        height: 250px;   
+        background-color: transparent;
+    }
+
+    .gallery-item img {
+        object-fit: cover; 
+        object-position: center; 
+    }
+    
+    .character-info {
+        padding: 30px 20px;
+    }
+}
+
+/* Smartphones pequeños */
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.6rem;
+    }
+
+    .glass-panel h2 {
+        font-size: 1rem;
+    }
+
+    .text-block h2, .lore-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .text-block p, .lore-text p {
+        font-size: 0.95rem;
+    }
+
+    .gallery-item {
+        min-width: 90vw;
+        height: 220px; 
+    }
+
+    .control-box {
+        padding: 20px 10px;
+    }
+
+    .footer-logo {
+        max-width: 180px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .lang-selector {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+    }
+    
+    .lang-selector button {
+        font-size: 0.8rem;
+    }
 }

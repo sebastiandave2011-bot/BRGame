@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bogotá Roots</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Language Selector -->
     <div class="lang-selector">
         <button id="btn-es" class="active">ES</button>
         <span>|</span>
         <button id="btn-en">EN</button>
     </div>
 
-    <!-- Hero Section -->
     <header class="hero">
         <video autoplay muted loop playsinline class="hero-video">
-            <!-- Usando un video placeholder abstracto/oscuro -->
             <source src="Assets/hero-bogota.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -38,17 +33,14 @@
         </div>
     </header>
 
-    <!-- Game Container Section -->
     <section id="game-section" class="game-container-section">
         <div class="glass-panel fade-in">
             <h2 data-key="play-title">Juega Bogotá Roots</h2>
             
-            <div class="game-wrapper" style="position: relative; display: flex; justify-content: center; align-items: center; background: #050505; border: 2px solid #00a76f; border-radius: 8px; overflow: hidden; padding: 10px; box-shadow: 0 0 20px rgba(0, 167, 111, 0.2);">
-                
-                <iframe frameborder="0" src="https://itch.io/embed-upload/17213154?color=235a0a" allowfullscreen="" width="700" height="440">
+            <div class="game-wrapper">
+                <iframe class="game-iframe" frameborder="0" src="https://itch.io/embed-upload/17213154?color=235a0a" allowfullscreen="">
                     <a href="https://nahumb.itch.io/brgame">Play BRgame on itch.io</a>
                 </iframe>
-
             </div>
             
             <p style="margin-top: 15px; color: #a0a0a0; font-size: 0.9rem; font-style: italic;">
@@ -57,10 +49,6 @@
         </div>
     </section>
 
-        </div>
-    </section>
-
-    <!-- About Section -->
     <section class="about-section fade-in">
         <div class="text-block">
             <h2 data-key="about-title">Acerca del Juego</h2>
@@ -69,11 +57,9 @@
         </div>
     </section>
 
-    <!-- Horizontal Gallery -->
     <section class="gallery-section fade-in">
         <h2 class="section-title" data-key="gallery-title">Arte y Escenarios</h2>
         <div class="horizontal-scroll">
-            <!-- Placeholder images from Unsplash matching the vibe -->
             <div class="gallery-item"><img src="images/Fondo.webp" alt="Bogota Monserrate" loading="lazy"></div>
             <div class="gallery-item"><img src="images/plaza.webp" alt="Bogota Streets" loading="lazy"></div>
             <div class="gallery-item"><img src="images/nivel2 .webp" alt="Pixel Art Nature" loading="lazy"></div>
@@ -90,42 +76,64 @@
         </div>
     </section>
 
-    <!-- Trailers Section -->
     <section class="trailers-section fade-in">
         <h2 class="section-title" data-key="trailers-title">Tráilers y Gameplay</h2>
         <div class="video-grid">
             
             <div class="video-card">
-                <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                        src="https://www.youtube.com/embed/ysqs0pnsKdc" 
-                        title="Bogotá Roots - Tráiler Oficial" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/ysqs0pnsKdc" title="Bogotá Roots - Tráiler Oficial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <h3 data-key="trailer-1" style="margin-top: 15px;">Tráiler Oficial</h3>
+                <h3 data-key="trailer-1">Tráiler Oficial</h3>
             </div>
 
             <div class="video-card">
-                <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                        src="https://www.youtube.com/embed/PmNbX_v1fMo" 
-                        title="Bogotá Roots - Gameplay" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/PmNbX_v1fMo" title="Bogotá Roots - Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <h3 data-key="trailer-2" style="margin-top: 15px;">Gameplay Revelación</h3>
+                <h3 data-key="trailer-2">Gameplay Revelación</h3>
             </div>
 
         </div>
         <a href="https://www.youtube.com/@BogotaRoots" class="yt-link" data-key="yt-link">Visitar Canal de YouTube</a>
     </section>
+    <section class="character-section fade-in">
+        <h2 class="section-title" data-key="char-title">El Viajero</h2>
+        <div class="character-card">
+            <div class="character-image">
+                <img src="images/personaje.webp" alt="Rooter, el protagonista" loading="lazy">
+            </div>
+            <div class="character-info">
+                <h3 class="char-name">Rooter</h3>
+                <p class="char-desc" data-key="char-desc">El protagonista de nuestra historia. Un explorador urbano equipado para enfrentarse al cambiante clima y misterios de la ciudad.</p>
+                
+                <ul class="char-traits">
+                    <li>
+                        <span class="trait-icon">🧥</span>
+                        <div>
+                            <h4 data-key="trait-1-title">Resistencia al Clima</h4>
+                            <p data-key="trait-1-desc">Preparado para soportar las bajas temperaturas y abrirse paso a través de la densa niebla bogotana.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="trait-icon">👟</span>
+                        <div>
+                            <h4 data-key="trait-2-title">Agilidad Urbana</h4>
+                            <p data-key="trait-2-desc">Equipado para deslizarse sobre el hielo y saltar abismos traicioneros con precisión.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="trait-icon">🎒</span>
+                        <div>
+                            <h4 data-key="trait-3-title">Buscador de Raíces</h4>
+                            <p data-key="trait-3-desc">Su motivación principal es recolectar las monedas ocultas y descubrir la historia de su ciudad.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <!-- Lore Section -->
     <section class="lore-section fade-in">
         <div class="lore-grid">
             <div class="lore-text">
@@ -139,9 +147,8 @@
         </div>
     </section>
 
-    <!-- Gameplay Section -->
     <section class="gameplay-section fade-in">
-        <h2 class="section-title" data-key="gameplay-title">Cómo Jugar</h2>
+        <h2 class="section-title" data-key="gameplay-title">Como Jugar</h2>
         <div class="controls-container">
             <div class="control-box">
                 <div class="icon-keys">
@@ -157,13 +164,12 @@
                 <h3 data-key="ctrl-jump">Saltar</h3>
                 <p data-key="ctrl-jump-desc">Esquiva obstáculos y supera las plataformas de caída libre.</p>
             </div>
-            
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <h2 class="footer-title">BOGOTÁ ROOTS</h2>
+        <img src="images/BRico.webp" alt="Bogotá Roots Logo" class="footer-logo">
+        
         <p data-key="footer-text">Un desarrollo independiente con pasión por la historia y los videojuegos.</p>
         <div class="footer-links">
             <a href="https://nahumb.itch.io/brgame" target="_blank">Itch.io</a>
@@ -172,7 +178,6 @@
         <p class="copyright">© 2026 Bogotá Roots. All rights reserved.</p>
     </footer>
 
-    <!-- JS -->
     <script src="script.js"></script>
 </body>
 </html>
