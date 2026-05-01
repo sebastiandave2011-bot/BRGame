@@ -32,7 +32,8 @@ const translations = {
         "ctrl-jump-desc": "Esquiva obstáculos y supera las plataformas de caída libre.",
         "ctrl-interact": "Interactuar",
         "ctrl-interact-desc": "Habla con los NPCs y abre las puertas al tener la llave.",
-        "footer-text": "Un desarrollo independiente con pasión por la historia y los videojuegos."
+        "footer-text": "Un desarrollo independiente con pasión por la historia y los videojuegos.",
+        "turismo-link": "Turismo"
     },
     en: {
         "hero-subtitle": "Available now on Itch.io",
@@ -66,18 +67,17 @@ const translations = {
         "ctrl-jump-desc": "Dodge obstacles and overcome free-falling platforms.",
         "ctrl-interact": "Interact",
         "ctrl-interact-desc": "Talk to NPCs and open doors when you have the key.",
-        "footer-text": "An independent development with a passion for history and video games."
+        "footer-text": "An independent development with a passion for history and video games.",
+        "turismo-link": "Tourism"
     }
 };
 
-// Main Logic Wrapper
 document.addEventListener("DOMContentLoaded", () => {
     
     // --- 1. Language Selector Logic ---
     const btnEs = document.getElementById("btn-es");
     const btnEn = document.getElementById("btn-en");
     
-    // Check local storage for language preference
     let currentLang = localStorage.getItem("language") || "es";
     setLanguage(currentLang);
 
@@ -88,8 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setLanguage(lang) {
         localStorage.setItem("language", lang);
-        
-        // Update active button state
         if (lang === "es" && btnEs && btnEn) {
             btnEs.classList.add("active");
             btnEn.classList.remove("active");
@@ -97,8 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
             btnEn.classList.add("active");
             btnEs.classList.remove("active");
         }
-
-        // Translate all elements with data-key attribute
         document.querySelectorAll("[data-key]").forEach(elem => {
             const key = elem.getAttribute("data-key");
             if (translations[lang][key]) {
@@ -109,41 +105,142 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 2. Scroll Fade-in Animation Logic ---
     const fadeElements = document.querySelectorAll('.fade-in');
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once visible
+                observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
+    fadeElements.forEach(elem => observer.observe(elem));
 
-    fadeElements.forEach(elem => {
-        observer.observe(elem);
-    });
-
-    // --- 3. Showcase Carrusel Animation Logic ---
-    // Pause carrusel animation smoothly when user hovers over the showcase
+    // --- 3. Lógica del Showcase Carrusel & Modal Lightbox ---
     const showcaseContainer = document.querySelector('.showcase-container');
+    const dragWrapper = document.querySelector('.showcase-drag-wrapper');
+    const tracks = document.querySelectorAll('.showcase-track');
+    const galleryItems = document.querySelectorAll('.gallery-item-cover');
     
-    if (showcaseContainer) {
-        showcaseContainer.addEventListener('mouseenter', () => {
-            document.querySelectorAll('.showcase-track').forEach(track => {
-                track.style.animationPlayState = 'paused';
-            });
-        });
+    // Elementos del Modal
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-image');
+    const modalCloseBtn = document.querySelector('.modal-close');
+
+    let isDraggingWrapper = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let didDrag = false; // Flag definitivo para diferenciar clic de arrastre
+
+    if (showcaseContainer && dragWrapper) {
         
+        // Pausar animación al poner el cursor encima
+        showcaseContainer.addEventListener('mouseenter', () => {
+            if(!isDraggingWrapper) tracks.forEach(t => t.style.animationPlayState = 'paused');
+        });
         showcaseContainer.addEventListener('mouseleave', () => {
-            document.querySelectorAll('.showcase-track').forEach(track => {
-                track.style.animationPlayState = 'running';
+            if(!isDraggingWrapper) tracks.forEach(t => t.style.animationPlayState = 'running');
+        });
+
+        // Funciones de Arrastre (Drag)
+        const getPositionX = (e) => e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+
+        const startDrag = (e) => {
+            isDraggingWrapper = true;
+            didDrag = false; // Resetear flag al iniciar clic/toque
+            startPos = getPositionX(e);
+            dragWrapper.classList.add('dragging');
+            tracks.forEach(t => t.style.animationPlayState = 'paused');
+        };
+
+        const drag = (e) => {
+            if (!isDraggingWrapper) return;
+            const currentPosition = getPositionX(e);
+            const diff = currentPosition - startPos;
+            
+            // Si mueve más de 10 píxeles, lo consideramos un arrastre real, NO un clic
+            if (Math.abs(diff) > 10) {
+                didDrag = true; 
+            }
+            
+            currentTranslate = prevTranslate + diff;
+            dragWrapper.style.transform = `translateX(${currentTranslate}px)`;
+        };
+
+        const endDrag = () => {
+            if(!isDraggingWrapper) return;
+            isDraggingWrapper = false;
+            dragWrapper.classList.remove('dragging');
+            
+            // Efecto resorte suave al soltar
+            dragWrapper.style.transform = `translateX(0px)`;
+            prevTranslate = 0;
+            
+            // Reanudar si el cursor ya no está en la galería
+            if(!showcaseContainer.matches(':hover')) {
+                tracks.forEach(t => t.style.animationPlayState = 'running');
+            }
+        };
+
+        // Escuchadores de Mouse y Touch
+        dragWrapper.addEventListener('mousedown', startDrag);
+        window.addEventListener('mousemove', drag);
+        window.addEventListener('mouseup', endDrag);
+
+        dragWrapper.addEventListener('touchstart', startDrag, {passive: true});
+        window.addEventListener('touchmove', drag, {passive: true});
+        window.addEventListener('touchend', endDrag);
+
+        // --- Funciones del Modal ---
+        const openModal = (imgSrc) => {
+            if (!modal || !modalImg) return;
+            modalImg.src = imgSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Bloquear scroll de la página
+        };
+
+        const closeModal = () => {
+            if (!modal) return;
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Liberar scroll
+            setTimeout(() => { modalImg.src = ""; }, 300); // Limpiar source tras la animación
+        };
+
+        // Asignar los eventos de clic a cada portada del juego
+        galleryItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Si el usuario arrastró la galería, ignoramos el clic
+                if (didDrag) return; 
+                
+                const img = item.querySelector('img');
+                if (img) openModal(img.src);
             });
+            
+            // Evitar comportamiento molesto nativo al arrastrar la imagen sola
+            const img = item.querySelector('img');
+            if (img) {
+                img.addEventListener('dragstart', (e) => e.preventDefault());
+            }
+        });
+
+        // Eventos para cerrar el Modal
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', closeModal);
+        }
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                // Cerrar si hace clic en el fondo oscuro
+                if (e.target === modal) closeModal();
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
         });
     }
 });

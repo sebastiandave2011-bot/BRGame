@@ -203,7 +203,7 @@ h1, h2, h3, h4 {
     60% { transform: translateY(-7px); }
 }
 
-/* Game Container - Adaptado para Responsive */
+/* Game Container */
 .game-container-section {
     padding: 100px 20px;
     display: flex;
@@ -283,18 +283,18 @@ h1, h2, h3, h4 {
 /* CONTROL DE PISTAS (Velocidad y Espacio) */
 .showcase-track {
     display: flex;
-    gap: 10px; /* <--- IMÁGENES MÁS PEGADAS */
+    gap: 10px; 
     width: fit-content;
     will-change: transform;
 }
 
 .showcase-track-1 {
-    margin-bottom: 15px; /* <--- MENOS ESPACIO ENTRE LA FILA DE ARRIBA Y LA DE ABAJO */
-    animation: scrollLeft 150s linear infinite; /* <--- MUCHO MÁS LENTO */
+    margin-bottom: 15px; 
+    animation: scrollLeft 150s linear infinite;
 }
 
 .showcase-track-2 {
-    animation: scrollRight 150s linear infinite; /* <--- MUCHO MÁS LENTO */
+    animation: scrollRight 150s linear infinite; 
 }
 
 /* The actual covers used within the track */
@@ -312,7 +312,6 @@ h1, h2, h3, h4 {
     z-index: 1;
 }
 
-/* Initial state: slightly darkened using a pseudo-element over the image */
 .gallery-item-cover::after {
     content: '';
     position: absolute;
@@ -348,7 +347,7 @@ h1, h2, h3, h4 {
     transform: scale(1.05);
 }
 
-/* Define continuous, very slow marquee keyframes */
+/* Keyframes de animación infinita */
 @keyframes scrollLeft {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); } 
@@ -359,11 +358,88 @@ h1, h2, h3, h4 {
     100% { transform: translateX(0); } 
 }
 
-/* CSS only approach for pausing on overall container */
-.showcase-container:hover .showcase-track {
-    animation-play-state: paused;
+/* =========================================
+   DRAG WRAPPER & MODAL STYLES (NEW)
+   ========================================= */
+
+/* Wrapper para el arrastre táctil sin romper el loop */
+.showcase-drag-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: grab;
+    /* Efecto resorte al soltar */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+    will-change: transform;
 }
 
+.showcase-drag-wrapper.dragging {
+    transition: none; /* Instantáneo al arrastrar */
+    cursor: grabbing;
+}
+
+/* Fondo Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Imagen Modal */
+.modal-overlay img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(0, 167, 111, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active img {
+    transform: scale(1);
+}
+
+/* Cerrar Modal */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--text-muted);
+    font-size: 40px;
+    font-family: var(--font-body);
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 2001;
+}
+
+.modal-close:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+body.modal-open {
+    overflow: hidden; /* Bloquear scroll general */
+}
 
 /* Trailers Section */
 .trailers-section {
@@ -579,7 +655,7 @@ footer {
 .character-card {
     display: flex;
     flex-direction: column; 
-    max-width: 1200px; /* Igualamos con la caja de Juega Bogota Roots */
+    max-width: 1200px;
     margin: 0 auto;
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.05);
@@ -665,7 +741,6 @@ footer {
    MEDIA QUERIES - MOBILE FIRST ADAPTATION
    ========================================= */
 
-/* Tablets y pantallas medianas */
 @media (max-width: 768px) {
     .section-title {
         font-size: 1.3rem;
@@ -693,7 +768,7 @@ footer {
         padding: 30px 20px;
     }
 
-    /* Adaptación de la galería showcase para móviles */
+    /* Galería adaptada para móviles */
     .gallery-item-cover {
         width: 120px;
         height: 180px;
@@ -704,7 +779,7 @@ footer {
     }
 
     .showcase-track-1 {
-        margin-bottom: 10px; /* Fila 1 y 2 más unidas en celular */
+        margin-bottom: 10px; /* Fila 1 y 2 unidas en celular */
     }
 
     .about-section, .trailers-section, .lore-section, .gameplay-section {
@@ -716,7 +791,6 @@ footer {
     }
 }
 
-/* Smartphones pequeños */
 @media (max-width: 480px) {
     .game-title {
         font-size: 1.3rem;
