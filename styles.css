@@ -609,6 +609,85 @@ body.modal-open {
     box-shadow: -15px 15px 0px rgba(0, 167, 111, 0.2);
 }
 
+/* =========================================
+   NEW SECTION: MECÁNICAS DEL JUEGO
+   ========================================= */
+.mechanics-section {
+    padding: 100px 5vw;
+    background: linear-gradient(to bottom, var(--bg-light), var(--bg-color));
+}
+
+.mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mechanic-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mechanic-card:hover {
+    transform: translateY(-10px);
+    background: rgba(0, 167, 111, 0.05);
+    border-color: var(--accent);
+    box-shadow: 0 15px 35px rgba(0, 167, 111, 0.2);
+}
+
+.mechanic-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 167, 111, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 167, 111, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.mechanic-card:hover .mechanic-icon {
+    transform: scale(1.1) rotateY(360deg);
+}
+
+.mechanic-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 5px rgba(0, 167, 111, 0.4));
+}
+
+.mechanic-card h3 {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.mechanic-card p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
 /* Gameplay Section */
 .gameplay-section {
     padding: 100px 5vw;
@@ -668,6 +747,48 @@ body.modal-open {
     font-size: 0.95rem;
 }
 
+/* =========================================
+   NUEVO ESTILO PARA EL BADGE MÓVIL
+   ========================================= */
+.mobile-badge-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.mobile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 167, 111, 0.3);
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.mobile-badge:hover {
+    border-color: var(--accent);
+    background: rgba(0, 167, 111, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 167, 111, 0.2);
+}
+
+.mobile-icon {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 5px var(--accent));
+}
+
+.mobile-badge span:not(.mobile-icon) {
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* Footer & Logo */
 footer {
     padding: 60px 20px 30px;
@@ -694,6 +815,7 @@ footer {
     margin: 20px 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; 
     gap: 30px;
 }
 
@@ -843,21 +965,25 @@ footer {
         padding: 30px 20px;
     }
 
-    /* Galería adaptada para móviles */
+    .mechanics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
     .gallery-item-cover {
         width: 120px;
         height: 180px;
     }
 
     .showcase-track {
-        gap: 8px; /* Aún más pegadas en celulares */
+        gap: 8px; 
     }
 
     .showcase-track-1 {
-        margin-bottom: 10px; /* Fila 1 y 2 unidas en celular */
+        margin-bottom: 10px; 
     }
 
-    .about-section, .trailers-section, .lore-section, .gameplay-section {
+    .about-section, .trailers-section, .lore-section, .gameplay-section, .mechanics-section {
         background-color: #000 !important;
     }
 
@@ -885,12 +1011,20 @@ footer {
         font-size: 1rem;
     }
 
-    .text-block h2, .lore-text h2 {
-        font-size: 1.2rem;
+    .text-block h2, .lore-text h2, .section-title {
+        font-size: 1.1rem;
     }
 
     .text-block p, .lore-text p {
         font-size: 0.95rem;
+    }
+
+    .mechanics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mechanic-card {
+        padding: 25px 15px;
     }
 
     .control-box {
@@ -903,7 +1037,7 @@ footer {
 
     .footer-links {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
     
     .lang-selector {

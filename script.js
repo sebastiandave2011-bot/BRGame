@@ -25,6 +25,43 @@ const translations = {
         "lore-title": "La Historia",
         "lore-text-1": "Acompaña a un solitario viajero en su travesía por el misticismo del Jardín Botánico y las frías alturas de Monserrate. En su camino, acompañado por una inmersiva banda sonora de 8 bits y densa niebla, descubrirá la verdadera esencia de la ciudad.",
         "lore-text-2": "El objetivo es claro: recolectar las 5 monedas ocultas para forjar el trofeo, encontrar la llave perdida y cruzar las puertas hacia nuevos horizontes. Presta atención a tu entorno; perritos, gatos y aves pixeladas te acompañarán en este descenso hacia las raíces de Bogotá.",
+        
+        // --- NUEVAS TRADUCCIONES: MECÁNICAS ---
+        "mechanics-title": "Mecánicas del Juego",
+        "mech-lives-title": "Sistema de Vidas",
+        "mech-lives-desc": "Cuentas con oportunidades limitadas para completar tu travesía. ¡Cuídalas bien!",
+        "mech-coins-title": "Recolección",
+        "mech-coins-desc": "Busca las monedas ocultas en cada rincón para iluminar tu camino.",
+        "mech-trophy-title": "Trofeo de Oro",
+        "mech-trophy-desc": "Al conseguir las 5 monedas de un nivel, forjarás el trofeo de perfección.",
+        "mech-moving-title": "Plataformas Móviles",
+        "mech-moving-desc": "Estructuras urbanas en constante movimiento que pondrán a prueba tu ritmo.",
+        "mech-falling-title": "Suelo Inestable",
+        "mech-falling-desc": "Ten cuidado: algunos puentes y plataformas colapsan segundos después de tocarlos.",
+        "mech-ice-title": "Zonas de Hielo",
+        "mech-ice-desc": "Superficies resbaladizas inspiradas en el granizo que dificultan el frenado.",
+        "mech-nitro-title": "Barril Nitro",
+        "mech-nitro-desc": "Altamente inestable. Explota al instante al entrar en contacto con el jugador.",
+        "mech-bomb-title": "Barril Explosivo",
+        "mech-bomb-desc": "Inicia una cuenta regresiva al acercarte. Aléjate antes de que sea tarde.",
+        "mech-lethal-title": "Barril Letal",
+        "mech-lethal-desc": "El peligro definitivo. Su radio de explosión y daño son críticos.",
+        "mech-roll-title": "Peligro Rodante",
+        "mech-roll-desc": "Obstáculos cinéticos que recorren los pasajes del nivel oculto de Monserrate.",
+        "mech-hidden-title": "Nivel Oculto",
+        "mech-hidden-desc": "Solo los maestros que superen los 3 niveles desbloquearán el ascenso final.",
+        "mech-final-title": "El Gran Final",
+        "mech-final-desc": "La cinemática y conclusión real solo aguardan a quienes recolecten todo.",
+
+        // Agrega esto dentro de translations.es
+        "mech-key-title": "La Llave Perdida",
+        "mech-key-desc": "Un objeto vital oculto en el nivel. Sin ella, no podrás abrir el acceso al siguiente destino.",
+        "mech-door-title": "Puerta de Salida",
+        "mech-door-desc": "El portal hacia tu siguiente aventura. Solo se abrirá si posees la llave correspondiente.",
+        "mech-rolo-title": "Rolo el Guía",
+        "mech-rolo-desc": "Habla con este habitante local para descubrir datos históricos fascinantes sobre Bogotá.",
+        "mobile-note": "El juego está adaptado para dispositivos móviles",
+
         "gameplay-title": "Cómo Jugar",
         "ctrl-move": "Movimiento",
         "ctrl-move-desc": "Usa las teclas direccionales o WASD para desplazarte por el nivel.",
@@ -33,14 +70,14 @@ const translations = {
         "ctrl-interact": "Interactuar",
         "ctrl-interact-desc": "Habla con los NPCs y abre las puertas al tener la llave.",
         "footer-text": "Un desarrollo independiente con pasión por la historia y los videojuegos.",
-        "turismo-link": "Turismo"
+        "turismo-link": "Turismo",
+        "download-link": "Descargar para PC"
     },
     en: {
         "hero-subtitle": "Available now on Itch.io",
         "hero-btn": "Play Now",
         "scroll-down": "Discover more",
         "play-title": "Play Bogota Roots",
-        "iframe-placeholder": "[Itch.io game container. Replace the iframe src with your actual link]",
         "about-title": "About The Game",
         "about-text-1": "Developed in Unity, Bogota Roots is a challenging 2D platformer that takes you through three meticulously designed levels. Face slippery ice platforms, moving structures with direction inversion, and bridges on the verge of collapsing.",
         "about-text-2": "At the end of each journey, if you overcome the challenges, a local inhabitant will reward you with a fascinating historical fact about the capital before allowing you to advance.",
@@ -60,6 +97,42 @@ const translations = {
         "lore-title": "The Lore",
         "lore-text-1": "Join a solitary traveler on their journey through the mysticism of the Botanical Garden and the cold heights of Monserrate. Along the way, accompanied by an immersive 8-bit soundtrack and dense fog, they will discover the true essence of the city.",
         "lore-text-2": "The goal is clear: collect the 5 hidden coins to forge the trophy, find the lost key, and cross the doors to new horizons. Pay attention to your surroundings; pixelated dogs, cats, and birds will accompany you in this descent into the roots of Bogota.",
+        
+        // --- NEW TRANSLATIONS: MECHANICS ---
+        "mechanics-title": "Game Mechanics",
+        "mech-lives-title": "Life System",
+        "mech-lives-desc": "You have limited opportunities to complete your journey. Take good care of them!",
+        "mech-coins-title": "Collection",
+        "mech-coins-desc": "Search for the hidden coins in every corner to light your way.",
+        "mech-trophy-title": "Gold Trophy",
+        "mech-trophy-desc": "By collecting all 5 coins in a level, you will forge the trophy of perfection.",
+        "mech-moving-title": "Moving Platforms",
+        "mech-moving-desc": "Urban structures in constant motion that will test your timing.",
+        "mech-falling-title": "Unstable Ground",
+        "mech-falling-desc": "Be careful: some bridges and platforms collapse seconds after touching them.",
+        "mech-ice-title": "Ice Zones",
+        "mech-ice-desc": "Slippery surfaces inspired by hail that make braking difficult.",
+        "mech-nitro-title": "Nitro Barrel",
+        "mech-nitro-desc": "Highly unstable. Explodes instantly upon contact with the player.",
+        "mech-bomb-title": "Explosive Barrel",
+        "mech-bomb-desc": "Starts a countdown as you approach. Get away before it's too late.",
+        "mech-lethal-title": "Lethal Barrel",
+        "mech-lethal-desc": "The ultimate danger. Its explosion radius and damage are critical.",
+        "mech-roll-title": "Rolling Danger",
+        "mech-roll-desc": "Kinetic obstacles that travel through the passages of the Monserrate hidden level.",
+        "mech-hidden-title": "Hidden Level",
+        "mech-hidden-desc": "Only masters who overcome the 3 levels will unlock the final ascent.",
+        "mech-final-title": "The True Ending",
+        "mech-final-desc": "The real cinematic and conclusion only await those who collect everything.",
+        // Agrega esto dentro de translations.en
+        "mech-key-title": "The Lost Key",
+        "mech-key-desc": "A vital object hidden in the level. Without it, you cannot open the gate to the next destination.",
+        "mech-door-title": "Exit Door",
+        "mech-door-desc": "The portal to your next adventure. It will only open if you have the corresponding key.",
+        "mech-rolo-title": "Rolo the Guide",
+        "mech-rolo-desc": "Talk to this local inhabitant to discover fascinating historical facts about Bogotá.",
+        "mobile-note": "The game is adapted for mobile devices",
+
         "gameplay-title": "How To Play",
         "ctrl-move": "Movement",
         "ctrl-move-desc": "Use the arrow keys or WASD to navigate through the level.",
@@ -68,7 +141,8 @@ const translations = {
         "ctrl-interact": "Interact",
         "ctrl-interact-desc": "Talk to NPCs and open doors when you have the key.",
         "footer-text": "An independent development with a passion for history and video games.",
-        "turismo-link": "Tourism"
+        "turismo-link": "Tourism",
+        "download-link": "Download for PC"
     }
 };
 
@@ -136,29 +210,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let isHovered = false;
     
     // Variables de la animación (Velocidad y dirección)
-    let animSpeed = 0.15; // Ajusta este número para que vaya más rápido o más lento
-    let animDirection = -1; // -1 va a la izquierda, 1 va a la derecha
+    let animSpeed = 0.15; 
+    let animDirection = -1; 
 
     if (showcaseContainer && dragWrapper) {
         
         // --- MOTOR DE ANIMACIÓN JS INFINITA CON EFECTO PING-PONG ---
         const animateGallery = () => {
-            // Solo se anima si el usuario no tiene el control, ni está arrastrando, ni tiene el mouse encima
             if (!isDraggingWrapper && !hasUserInteracted && !isHovered) {
-                // Calcular límite matemático exacto
                 const minTranslate = showcaseContainer.clientWidth - dragWrapper.scrollWidth;
                 
-                // Asegurar que el contenido es más grande que la pantalla
                 if (minTranslate < 0) {
                     currentTranslate += (animSpeed * animDirection);
                     
-                    // Lógica Ping-Pong: Rebotar en los extremos SIN dejar espacios vacíos
                     if (currentTranslate <= minTranslate) {
                         currentTranslate = minTranslate;
-                        animDirection = 1; // Rebotar a la derecha
+                        animDirection = 1; 
                     } else if (currentTranslate >= 0) {
                         currentTranslate = 0;
-                        animDirection = -1; // Rebotar a la izquierda
+                        animDirection = -1; 
                     }
                     
                     dragWrapper.style.transform = `translateX(${currentTranslate}px)`;
@@ -176,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.addEventListener('click', (e) => {
             if (!showcaseContainer.contains(e.target) && hasUserInteracted) {
-                hasUserInteracted = false; // Devuelve el control a la animación automática
+                hasUserInteracted = false; 
             }
         });
 
@@ -202,10 +272,9 @@ document.addEventListener("DOMContentLoaded", () => {
             
             currentTranslate = prevTranslate + diff;
             
-            // Limitador matemático: Impide arrastrar hacia el vacío negro
             const minTranslate = showcaseContainer.clientWidth - dragWrapper.scrollWidth;
-            if (currentTranslate > 0) currentTranslate = 0; // Límite izquierdo
-            if (currentTranslate < minTranslate) currentTranslate = minTranslate; // Límite derecho
+            if (currentTranslate > 0) currentTranslate = 0; 
+            if (currentTranslate < minTranslate) currentTranslate = minTranslate; 
 
             dragWrapper.style.transform = `translateX(${currentTranslate}px)`;
         };
@@ -231,14 +300,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (Math.abs(e.deltaX) > 0) {
                 e.preventDefault();
                 hasUserInteracted = true;
-                
                 currentTranslate -= (e.deltaX * 1.5); 
-                
-                // Limitador matemático para la rueda
                 const minTranslate = showcaseContainer.clientWidth - dragWrapper.scrollWidth;
                 if (currentTranslate > 0) currentTranslate = 0;
                 if (currentTranslate < minTranslate) currentTranslate = minTranslate;
-
                 prevTranslate = currentTranslate;
                 dragWrapper.style.transform = `translateX(${currentTranslate}px)`;
             }
